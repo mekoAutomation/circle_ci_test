@@ -31,6 +31,8 @@ jobs:
             echo "try to connect"
             ssh -v -o "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
 
+            ssh root@164.90.160.246 "docker ps"
+
             cat ~/.ssh/known_hosts
 
 
