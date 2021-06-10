@@ -40,5 +40,11 @@ jobs:
             echo "execute local script remotely"
 
             ssh root@164.90.160.246 "sh -s" -- < script.sh "input"
+            
+      - run:
+          name: test scp
+          command: |
+            scp script.sh root@164.90.160.246:~/script.sh
+
 
 
