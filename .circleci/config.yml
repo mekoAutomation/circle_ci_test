@@ -21,6 +21,7 @@ jobs:
       - run:
           name: test ssh
           command: |
-            ssh -v root@164.90.160.246 "echo hello world" 
+            ls ~/.ssh
+            ssh -vv root@164.90.160.246 "echo hello world" 
 
 
