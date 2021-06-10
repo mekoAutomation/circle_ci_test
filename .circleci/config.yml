@@ -18,6 +18,8 @@ jobs:
       #    command: |
       #      ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
 
+      - checkout
+
       - run:
           name: test ssh
           command: |
@@ -34,5 +36,9 @@ jobs:
             ssh root@164.90.160.246 "docker ps"
 
             cat ~/.ssh/known_hosts
+
+            echo "execute local script remotely"
+
+            ssh root@164.90.160.246 "sh -s" -- < script.sh
 
 
