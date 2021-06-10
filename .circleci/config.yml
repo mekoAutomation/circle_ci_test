@@ -30,6 +30,6 @@ jobs:
             cat ~/.ssh/known_hosts
 
             echo "try to connect"
-            ssh -v -root@164.90.160.246 "echo hello world" 
+            ssh -v root@164.90.160.246 "echo hello world" 
 
 
