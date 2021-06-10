@@ -10,3 +10,16 @@ jobs:
             echo 'Hello World!'
             echo 'This is the delivery pipeline'
             echo 'this is the dev branch'
+
+      - add_ssh_keys
+        
+      - run:
+          command: |
+            ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
+
+      - run:
+          name: test ssh
+          command: |
+            ssh -v root@164.90.160.246 "echo hello world" 
+
+
