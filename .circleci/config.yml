@@ -2,10 +2,37 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: alpine:3.7
+      - image: cimg/base:2021.04
+    resource_class: small
     steps:
       - run:
           name: The First Step
           command: |
             echo 'Hello World!'
             echo 'This is the delivery pipeline'
+            echo 'this is the dev branch'
+
+      - add_ssh_keys
+        
+      #- run:
+      #    command: |
+      #      ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
+
+      - run:
+          name: test ssh
+          command: |
+            #ls ~/.ssh
+            #cat ~/.ssh/config
+
+            #echo "run keyscan"
+            #ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
+            #cat ~/.ssh/known_hosts
+
+            echo "try to connect"
+            ssh -v -o "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
+
+            ssh root@164.90.160.246 "docker ps"
+
+            cat ~/.ssh/known_hosts
+
+
