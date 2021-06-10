@@ -24,7 +24,7 @@ jobs:
             ls ~/.ssh
             cat ~/.ssh/config
 
-            ssh-keyscan -v -H 164.90.160.246 >> ~/.ssh/known_hosts
-            ssh -vv root@164.90.160.246 "echo hello world" 
+            #ssh-keyscan -v -H 164.90.160.246 >> ~/.ssh/known_hosts
+            ssh -v -o "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
 
 
