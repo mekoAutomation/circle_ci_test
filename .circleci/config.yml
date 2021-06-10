@@ -14,14 +14,15 @@ jobs:
 
       - add_ssh_keys
         
-      - run:
-          command: |
-            ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
+      #- run:
+      #    command: |
+      #      ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
 
       - run:
           name: test ssh
           command: |
             ls ~/.ssh
+            cat ~/.ssh/config
             ssh -vv root@164.90.160.246 "echo hello world" 
 
 
