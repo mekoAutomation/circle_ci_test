@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: cimg/base:2021.04
-    #resource_class: small
+    resource_class: small
     steps:
       - run:
           name: The First Step
@@ -26,10 +26,9 @@ jobs:
 
             echo "run keyscan"
             ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
-
             cat ~/.ssh/known_hosts
 
             echo "try to connect"
-            ssh -v root@164.90.160.246 "echo hello world" 
+            ssh -v -F ~/.ssh/config root@164.90.160.246 "echo hello world" 
 
 
