@@ -25,8 +25,10 @@ jobs:
             cat ~/.ssh/config
 
             echo "run keyscan"
-            ssh-keyscan 164.90.160.246
-            echo "try to connect"
-            ssh -v -o "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
+            ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
+
+            cat ~/.ssh/known_hosts
+            #echo "try to connect"
+            #ssh -v -o "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
 
 
