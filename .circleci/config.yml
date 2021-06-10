@@ -29,7 +29,7 @@ jobs:
             #cat ~/.ssh/known_hosts
 
             echo "try to connect"
-            ssh -v "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
+            ssh -v -o "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
 
             cat ~/.ssh/known_hosts
 
