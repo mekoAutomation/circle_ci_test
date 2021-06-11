@@ -21,6 +21,19 @@ jobs:
       - checkout
 
       - run:
+          command: | 
+            ssh -v -o "StrictHostKeyChecking no" circleci@164.90.160.246 "echo hello world" 
+            echo "known hosts"
+            cat ~/.ssh/known_hosts
+            echo "keyscan:"
+            ssh-keyscan 164.90.160.246
+
+
+            
+
+
+
+      - run:
           name: test ssh
           command: |
             #ls ~/.ssh
