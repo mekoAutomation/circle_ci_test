@@ -12,6 +12,17 @@ jobs:
             echo 'This is the delivery pipeline'
             echo 'this is the dev branch'
 
+      - run:
+          name: install hasura CLI
+          command: |
+            curl -L https://github.com/hasura/graphql-engine/raw/stable/cli/get.sh | bash
+
+      - run:
+          name: test hasura CLO
+          command: |
+            hasura version
+
+
       - add_ssh_keys
         
       #- run:
