@@ -31,7 +31,7 @@ jobs:
             #cat ~/.ssh/known_hosts
 
             echo "try to connect"
-            ssh -v -o "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
+            ssh -v -o "StrictHostKeyChecking no" circleci@164.90.160.246 "echo hello world" 
 
             ssh circleci@164.90.160.246 "docker ps"
 
