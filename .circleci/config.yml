@@ -33,18 +33,18 @@ jobs:
             echo "try to connect"
             ssh -v -o "StrictHostKeyChecking no" root@164.90.160.246 "echo hello world" 
 
-            ssh root@164.90.160.246 "docker ps"
+            ssh circleci@164.90.160.246 "docker ps"
 
             cat ~/.ssh/known_hosts
 
             echo "execute local script remotely"
 
-            ssh root@164.90.160.246 "sh -s" -- < script.sh "input"
+            ssh circleci@164.90.160.246 "sh -s" -- < script.sh "input"
             
       - run:
           name: test scp
           command: |
-            scp script.sh root@164.90.160.246:~/script.sh
+            scp script.sh circleci@164.90.160.246:~/script.sh
 
 
 
