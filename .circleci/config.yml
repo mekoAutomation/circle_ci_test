@@ -18,33 +18,28 @@ jobs:
             curl -L https://github.com/hasura/graphql-engine/raw/stable/cli/get.sh | bash
 
       - run:
-          name: test hasura CLO
+          name: test hasura CLI
           command: |
             hasura version
 
 
       - add_ssh_keys
-        
-      #- run:
-      #    command: |
-      #      ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
 
       - checkout
 
-     # - run:
-     #     command: | 
-     #       ssh -v -o "StrictHostKeyChecking no" circleci@164.90.160.246 "echo hello world" 
-     #       echo "known hosts"
-     #       cat ~/.ssh/known_hosts
-     #       echo "keyscan:"
-     #       ssh-keyscan 164.90.160.246
+      - run:
+          command: | 
+            echo "known hosts before scan:"
+            cat ~/.ssh/known_hosts
+            ssh -v -o "StrictHostKeyChecking no" circleci@164.90.160.246 "echo hello world" 
+            echo "known hosts:"
+            cat ~/.ssh/known_hosts
+            echo "keyscan:"
+            ssh-keyscan 164.90.160.246
 
 
       - run:
           command: |
-            ssh-keyscan 164.90.160.246 >> ~/.ssh/known_hosts
-            cat ~/.ssh/known_hosts
-
             echo "try to connect"
             ssh -v circleci@164.90.160.246 "echo hello world" 
 
