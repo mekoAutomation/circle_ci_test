@@ -29,13 +29,13 @@ jobs:
 
       - run:
           command: | 
-            echo "known hosts before scan:"
-            cat ~/.ssh/known_hosts
-            ssh -v -o "StrictHostKeyChecking no" circleci@164.90.160.246 "echo hello world" 
-            echo "known hosts:"
-            cat ~/.ssh/known_hosts
+            #echo "known hosts before scan:"
+            #cat ~/.ssh/known_hosts
+            #ssh -o "StrictHostKeyChecking no" circleci@164.90.160.246 "echo hello world" 
+            #echo "known hosts:"
+            #cat ~/.ssh/known_hosts
             echo "keyscan:"
-            ssh-keyscan 164.90.160.246
+            ssh-keyscan -H -t rsa 164.90.160.246 >> ~/.ssh/known_hosts
 
 
       - run:
