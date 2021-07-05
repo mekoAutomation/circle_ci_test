@@ -34,8 +34,13 @@ jobs:
             #ssh -o "StrictHostKeyChecking no" circleci@164.90.160.246 "echo hello world" 
             #echo "known hosts:"
             #cat ~/.ssh/known_hosts
-            echo "keyscan:"
-            ssh-keyscan -H -t rsa 164.90.160.246 >> ~/.ssh/known_hosts
+            #echo "keyscan:"
+            #ssh-keyscan -H -t rsa 164.90.160.246 >> tmp
+
+            # get fingerprint
+            #ssh-keygen -l -E sha256 -f tmp
+
+            echo "${STAGING_HOST_PUB_KEY}" >> ~/.ssh/known_hosts
 
 
       - run:
